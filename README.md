@@ -1,6 +1,6 @@
 # topic-finder
 
-topic-finder is use to find topics with the greater views count from a json file.
+topic-finder is used to find topics with the greater views count from a json file.
 
 ## How to run
 
