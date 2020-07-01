@@ -2,12 +2,15 @@
 
 # Represent a topic finder.
 class TopicFinder
+  TOPIC_IDS_FIELD = 'topic_ids'
+  VIEWS_COUNT_FIELD = 'views_count'
+
   def with_max_views_count(videos)
     topics_with_views_count = videos.each_with_object(Hash.new(0)) do |video, topics|
-      next unless video.key?('topic_ids') && video.key?('views_count')
+      next unless video.key?(TOPIC_IDS_FIELD) && video.key?(VIEWS_COUNT_FIELD)
 
-      video['topic_ids'].each do |topic_id|
-        topics[topic_id] += video['views_count']
+      video[TOPIC_IDS_FIELD].each do |topic_id|
+        topics[topic_id] += video[VIEWS_COUNT_FIELD]
       end
     end
 
